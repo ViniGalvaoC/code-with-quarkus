@@ -1,22 +1,19 @@
 package org.acme.Publicador;
 
-import jakarta.ws.rs.Path;
-import org.acme.models.PedidoDTO;
-
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.POST;
-
+import jakarta.ws.rs.Path;
+import org.acme.models.PedidoDTO;
 
 @Path("/pedidos")
 public class PublicadorResources {
 
-    @Inject
-    PedidoService pedidoService;
+  @Inject PedidoService pedidoService;
 
-    @POST
-    @Transactional
-    public void criarPedido(PedidoDTO pedidoDTO) {
-        pedidoService.processarPedido(pedidoDTO);
-    }
+  @POST
+  @Transactional
+  public void criarPedido(PedidoDTO pedidoDTO) {
+    pedidoService.processarPedido(pedidoDTO);
+  }
 }
